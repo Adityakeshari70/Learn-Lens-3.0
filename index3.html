@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deptico - eLearning Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #0d1b2a;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      background: #f8fbff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1b1b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links li {
+      cursor: pointer;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li:hover {
+      color: #5a5af5;
+    }
+
+    .nav-buttons button {
+      margin-left: 15px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .login {
+      background: transparent;
+      border: 1px solid #333;
+    }
+
+    .demo {
+      background: #0d1b2a;
+      color: #fff;
+    }
+
+    .demo:hover {
+      background: #1a2d4a;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 8%;
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    .hero-text .btn {
+      background: #0d1b2a;
+      color: #fff;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hero-video {
+      width: 45%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      width: 220px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+    .pricing {
+  text-align: center;
+  padding: 5vw 8vw;
+  background: #f9fafb;
+  font-family: "Poppins", sans-serif;
+}
+
+.pricing h2 {
+  font-size: 2.5rem;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.pricing p {
+  color: #6b7280;
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.plan {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.plan:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(37,99,235,0.15);
+}
+
+.plan h3 {
+  font-size: 1.5rem;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 5px;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: #6b7280;
+}
+
+.plan ul {
+  text-align: left;
+  margin: 20px 0;
+  color: #374151;
+}
+
+.plan ul li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+
+.popular {
+  border: 2px solid #2563eb;
+  transform: scale(1.05);
+}
+
+.popular .badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #facc15;
+  color: #111827;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn.highlight {
+  background: #10b981;
+}
+
+.btn.highlight:hover {
+  background: #059669;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+ 
+  <nav>
+    <div class="logo">LearnLens</div>
+    <ul class="nav-links">
+      
+      
+      <li>Schools & Universities</li>
+      <li>Home</li>
+      <li>Notes</li>
+      <li>FAQ</li>
+      <li><a href="course.html">Courses</a></li>
+      <li>About</li>
+    </ul>
+    <div class="nav-buttons">
+      <button class="login">Log In</button>
+      <button class="demo">Book a Demo</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <p>Learning Beyond Boundaries</p>
+      <h1>Smarter Learning   <br> Choices That Help   <br> You Career Needs </h1>
+      <button class="btn">Book a Demo</button>
+    </div>
+    <div class="hero-video">
+      <!-- Replace "video.mp4" with your own file path -->
+      <video autoplay muted loop playsinline>
+        <source src="file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+  <br>
+  <hr>
+       <div class="logos">
+        <div class="logos-slide">
+            <img src="amitylogo.jpeg" alt="">
+            <img src="alliancelogo.png" alt="">
+            <img src="NMIMSLOGO.png" alt="">
+            <img src="galgotialogo.png" alt="">
+            <img src="lpulogo.png" alt="">
+
+        </div>
+        <div class="logos-slide">
+            <img src="amitylogo.jpeg" alt="">
+            <img src="alliancelogo.png" alt="">
+            <img class="ak" src="NMIMSLOGO.png" alt="">
+            <img src="galgotialogo.png" alt="">
+            <img src="lpulogo.png" alt="">
+
+        </div>
+    </div>
+
+  <!-- Cards -->
+  <!-- <section class="cards">
+    <div class="card">
+      <h3>Speak</h3>
+      <p>Explore conversation courses.</p>
+    </div>
+    <div class="card">
+      <h3>Read</h3>
+      <p>Explore reading courses.</p>
+    </div>
+    <div class="card">
+      <h3>Write</h3>
+      <p>Explore writing courses.</p>
+    </div>
+  </section> -->
+    <section id="features">
+        <h1>Usefull Features</h1>
+        <br>
+        <p>Real reviews || Expert webinars || 1:1 guidance — all in one platform. </p>
+        <!-- <div class="fea-base">
+            <div class="fea-box">
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#000000">
+                    <path
+                        d="m385-412 36-115-95-74h116l38-119 37 119h117l-95 74 35 115-94-71-95 71ZM244-40v-304q-45-47-64.5-103T160-560q0-136 92-228t228-92q136 0 228 92t92 228q0 57-19.5 113T716-344v304l-236-79-236 79Zm236-260q109 0 184.5-75.5T740-560q0-109-75.5-184.5T480-820q-109 0-184.5 75.5T220-560q0 109 75.5 184.5T480-300ZM304-124l176-55 176 55v-171q-40 29-86 42t-90 13q-44 0-90-13t-86-42v171Zm176-86Z" />
+                </svg>
+                <h3>Verified Student Reviews</h3>
+                <p>Read genuine feedback from students who’ve taken the courses.</p> -->
+
+        <div class="fea-base">
+            <div class="fea-box">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#000000">
+                    <path
+                        d="M480-481q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM160-160v-94q0-38 19-65t49-41q67-30 128.5-45T480-420q62 0 123 15.5t127.92 44.69q31.3 14.13 50.19 40.97Q800-292 800-254v94H160Zm60-60h520v-34q0-16-9.5-30.5T707-306q-64-31-117-42.5T480-360q-57 0-111 11.5T252-306q-14 7-23 21.5t-9 30.5v34Zm260-321q39 0 64.5-25.5T570-631q0-39-25.5-64.5T480-721q-39 0-64.5 25.5T390-631q0 39 25.5 64.5T480-541Zm0-90Zm0 411Z" />
+                </svg>
+
+                <h3>Expert-Led Webinars</h3>
+                <p>Attend live webinars with industry or education experts, starting at just ₹49.</p>
+            </div>
+            <div class="fea-base">
+                <div class="fea-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                        fill="#000000">
+                        <path
+                            d="M479-120 189-279v-240L40-600l439-240 441 240v317h-60v-282l-91 46v240L479-120Zm0-308 315-172-315-169-313 169 313 172Zm0 240 230-127v-168L479-360 249-485v170l230 127Zm1-240Zm-1 74Zm0 0Z" />
+                    </svg>
+                    <h3>Wide University Network</h3>
+                    <p>Courses listed from 20+ top universities and growing.</p>
+                </div>
+            </div>
+            <div class="fea-base">
+                <div class="fea-box">
+               <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="m420.67-318 286.66-286.67L660-652 420.67-412.67 303.33-530 256-482.67 420.67-318Zm-234 198q-27 0-46.84-19.83Q120-159.67 120-186.67v-586.66q0-27 19.83-46.84Q159.67-840 186.67-840h586.66q27 0 46.84 19.83Q840-800.33 840-773.33v586.66q0 27-19.83 46.84Q800.33-120 773.33-120H186.67Zm0-66.67h586.66v-586.66H186.67v586.66Zm0-586.66v586.66-586.66Z"/></svg>
+                    <h3>Course Comparison</h3>
+                    <p>Compare 100+ courses from 20+ universities in one place.</p>
+                    <!-- adita kehari is the giid  -->
+                </div>
+            </div>
+    </section>
+    <!-- Pricing Section -->
+<section class="pricing" id="pricing">
+  <h2>Choose Your Plan</h2>
+  <p>Find the right plan for your learning journey.</p>
+
+  <div class="pricing-cards">
+    
+    <!-- Free Plan -->
+    <div class="plan">
+      <h3>Free</h3>
+      <p class="price">₹0<span>/mo</span></p>
+      <p class="tagline">Basic</p>
+      <ul>
+        <li>✅ 2 Free Small webinar</li>
+        <li>✅ Community Support</li>
+        <li>✅ 1 free subject notes</li>
+        <li>✅ Honest Reviews</li>
+      </ul>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="plan popular">
+      <div class="badge">Most </div>
+      <h3>Starter</h3>
+      <p class="price">₹499<span>/mo</span></p>
+      <p class="tagline">Best for dedicated learners</p>
+      <ul>
+        <li>✅ Unlimited Webinars calls (discounted)</li>
+        <li>✅ personalised Experience</li>
+        <li>✅ <b>Free Topper’s Notes</b> (Exam Ready )</li>
+        <li>✅ Priority support</li>
+      </ul>
+      <a href="#" class="btn highlight">Choose Premium</a>
+    </div>
+
+    <!-- Business Plan -->
+    <div class="plan">
+      <h3>Standard</h3>
+      <p class="price">₹999<span>/mo</span></p>
+      <p class="tagline">For ambitious learners</p>
+      <ul>
+        <li>✅ Everything in Premium</li>
+        <li>✅ AI-powered study recommendations</li>
+        <li>✅ Group study circles</li>
+        <li>✅ 3 Alumni Session</li>
+      </ul>
+      <a href="#" class="btn">Choose Business</a>
+    </div>
+
+    <!-- Enterprise Plan -->
+    <div class="plan">
+      <h3>Premium</h3>
+      <p class="price">₹1499<span>/mo</span></p>
+      <p class="tagline">For institutions & colleges</p>
+      <ul>
+        <li>✅ Everything in Website </li>
+        <li>✅  Personalised dashboard</li>
+        <li>✅ 5 Alumni Session </li>
+        <li>✅ 24/7 priority support</li>
+      </ul>
+      <a href="#" class="btn">Contact Sales</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <section id="course">
+        <h1>Our Partners</h1>
+        <p>We collaborate with top universities and learning platforms to bring you the best courses.</p>
+        <div class="course-box">
+
+            <div class="courses">
+                <img src="Direct-admission-in-Christ-University-Bangalore-Pune-under-Management-Quota.jpg" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>CHRIST University</h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="bitcblog1.jpg" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>BITS Pilani University</h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="Lovely-Professional-University.jpeg" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>Lovely Professional University</h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="P-2023-07-05T175859.898-1.png" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>NMIMS University</h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="images.jpeg" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>SRM University</h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="Amity-Mohali.webp" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>Amity University</h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="Alliance-University-Cut-Off.png" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>Alliance University</h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="AerialViewSIHS.jpg" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>Symbiosis Institute </h6>
+
+                </div>
+            </div>
+            <div class="courses">
+                <img src="parulllllll.gif" alt="">
+                <div class="details">
+                    <span></span>
+                    <h6>Parul University</h6>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  
+  <div class="faq-item">
+    <button class="faq-question">How much does an alumni call cost? <span>+</span></button>
+    <div class="faq-answer">
+      <p>Alumni calls are priced between ₹400–₹1000 depending on the alumni’s experience.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I choose which alumni to connect with? <span>+</span></button>
+    <div class="faq-answer">
+      <p>Yes! You can view alumni profiles and book calls with the ones that match your interests.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Are webinars live or recorded? <span>+</span></button>
+    <div class="faq-answer">
+      <p>Webinars are live, but recordings will also be available for many sessions.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">What are Topper’s Notes? <span>+</span></button>
+    <div class="faq-answer">
+      <p>Ready-to-use study notes prepared by toppers, priced affordably compared to coaching material.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How do I buy notes? <span>+</span></button>
+    <div class="faq-answer">
+      <p>Browse subjects, select notes, and purchase instantly through our platform.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Are these notes updated with the latest syllabus? <span>+</span></button>
+    <div class="faq-answer">
+      <p>Yes, toppers keep their notes updated every academic session.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">What if I miss a webinar I booked? <span>+</span></button>
+    <div class="faq-answer">
+      <p>You’ll either get the recording or can reschedule, depending on the session type.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How do I pay? <span>+</span></button>
+    <div class="faq-answer">
+      <p>We support UPI, debit/credit cards, and wallets for easy payments.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Is Learn Lense limited to specific universities? <span>+</span></button>
+    <div class="faq-answer">
+      <p>We’re starting with a few, but expanding to cover multiple courses and colleges soon.</p>
+    </div>
+  </div>
+</section>
+
+
+    <footer>
+        <div class="footer-col">
+            <h3>Top Courses</h3>
+            <li>MBA</li>
+            <li>B.Tech</li>
+            <li>B.com</li>
+            <li>BA</li>
+            <li>PHD</li>
+        </div>
+        <div class="footer-col">
+
+
+            <h3>Our Features</h3>
+            <li>Verified Reviews</li>
+            <li>Webinars & 1:1 Sessions</li>
+            <li>All-in-One Dashboard</li>
+            <li>Affordable Entry Pricing </li>
+            <li>Community Support</li>
+
+        </div>
+        <div class="footer-col">
+
+            <h3>Guides</h3>
+            <li>Research</li>
+            <li>Managed Website</li>
+            <li>experts</li>
+            <li>Marketing Service</li>
+
+        </div>
+        <div class="footer-col">
+
+            <h3>Resources</h3>
+            <li>Guides</li>
+            <li>Research</li>
+            <li>Experts</li>
+            <li>Marketing Service</li>
+
+        </div>
+        <div class="footer-col">
+
+            <h3>Newsletter</h3>
+            <p>You Can Trust Us. We Also Provide Offers</p>
+            <div class="subscribe">
+
+                <input type="text" placeholder="Your Email Address">
+                <a href="#" class="yellow">SUBSCRIBE</a>
+            </div>
+        </div>
+
+    </footer>
+    
+
+
+  <script>
+    // Example JS (Add interactivity)
+    document.querySelector('.btn').addEventListener('click', () => {
+      alert('Demo booking feature coming soon!');
+    });
+    const faqs = document.querySelectorAll('.faq-item');
+
+faqs.forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses - LearnLens</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+          /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      background: #f8fbff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1b1b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links li {
+      cursor: pointer;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li:hover {
+      color: #5a5af5;
+    }
+
+    .nav-buttons button {
+      margin-left: 15px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .login {
+      background: transparent;
+      border: 1px solid #333;
+    }
+
+    .demo {
+      background: #0d1b2a;
+      color: #fff;
+    }
+
+    .demo:hover {
+      background: #1a2d4a;
+    }
+    </style>
+</head>
+
+<body> <!-- Navbar -->
+    <!-- <nav> <img src="new.png" alt="LearnLens Logo" />
+        <div class="navigation">
+            <ul> <input class="input" type="text" placeholder="Search Colleges, Courses & more" /> <button
+                    class="btn btn-red">Search</button>
+                <li><a href="index3.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div> -->
+          <nav>
+    <div class="logo">LearnLens</div>
+    <ul class="nav-links">
+      
+      
+      <li>Schools & Universities</li>
+ <li><a href="index3.html">Home</a></li>
+      <li>Notes</li>
+      <li>FAQ</li>
+      <li><a href="course.html">Courses</a></li>
+      <li>About</li>
+    </ul>
+    <div class="nav-buttons">
+      <button class="login">Log In</button>
+      <button class="demo">Book a Demo</button>
+    </div>
+  </nav>
+    </nav> <!-- Courses Page Header -->
+    <section class="courses-header">
+        <h1>All the skills you need in one place</h1>
+        <p>From critical skills to technical topics, LearnLens supports your professional development.</p>
+    </section>
+    <h3 class="h3top">Top University Courses</h3> <!-- Categories -->
+    <div class="course-categories"> <button class="category-btn active" onclick="filterCourses('all')">All</button>
+        <button class="category-btn" onclick="filterCourses('data')">BBA</button> <button class="category-btn"
+            onclick="filterCourses('ai')">MBA</button> <button class="category-btn"
+            onclick="filterCourses('python')">MBBS</button> <button class="category-btn"
+            onclick="filterCourses('python')">BCA</button> <button class="category-btn"
+            onclick="filterCourses('python')">B-Tech</button> <button class="category-btn"
+            onclick="filterCourses('python')">M-Tech</button> </div> <!-- Course Cards -->
+    <section class="course-cards">
+        <div class="course-card data"> <img src="ai1.jpg" alt="Course" />
+            <h3>The Complete AI Guide</h3>
+            <p>Learn ChatGPT, Generative AI & More</p> <span> 1-1 call: ₹399</span>
+        </div>
+        <div class="course-card ai"> <img src="ai2.jpg" alt="Course" />
+            <h3>DeepSeek + AI Marketing</h3>
+            <p>30+ AI tools for professionals</p> <span>₹459</span>
+        </div>
+        <div class="course-card python"> <img src="python.jpg" alt="Course" />
+            <h3>Python for Beginners</h3>
+            <p>Master Python from scratch</p> <span>₹499</span>
+        </div>
+    </section>
+    <section class="course-cards">
+        <div class="course-card data"> <img src="ai1.jpg" alt="Course" />
+            <h3>The Complete AI Guide</h3>
+            <p>Learn ChatGPT, Generative AI & More</p> <span> 1-1 call: ₹399</span>
+        </div>
+        <div class="course-card ai"> <img src="ai2.jpg" alt="Course" />
+            <h3>DeepSeek + AI Marketing</h3>
+            <p>30+ AI tools for professionals</p> <span>₹459</span>
+        </div>
+        <div class="course-card python"> <img src="python.jpg" alt="Course" />
+            <h3>Python for Beginners</h3>
+            <p>Master Python from scratch</p> <span>₹499</span>
+        </div>
+    </section>
+    <section class="course-cards">
+        <div class="course-card data"> <img src="ai1.jpg" alt="Course" />
+            <h3>The Complete AI Guide</h3>
+            <p>Learn ChatGPT, Generative AI & More</p> <span> 1-1 call: ₹399</span>
+        </div>
+        <div class="course-card ai"> <img src="ai2.jpg" alt="Course" />
+            <h3>DeepSeek + AI Marketing</h3>
+            <p>30+ AI tools for professionals</p> <span>₹459</span>
+        </div>
+        <div class="course-card python"> <img src="python.jpg" alt="Course" />
+            <h3>Python for Beginners</h3>
+            <p>Master Python from scratch</p> <span>₹499</span>
+        </div>
+    </section>
+    <section class="course-cards">
+        <div class="course-card data"> <img src="ai1.jpg" alt="Course" />
+            <h3>The Complete AI Guide</h3>
+            <p>Learn ChatGPT, Generative AI & More</p> <span> 1-1 call: ₹399</span>
+        </div>
+        <div class="course-card ai"> <img src="ai2.jpg" alt="Course" />
+            <h3>DeepSeek + AI Marketing</h3>
+            <p>30+ AI tools for professionals</p> <span>₹459</span>
+        </div>
+        <div class="course-card python"> <img src="python.jpg" alt="Course" />
+            <h3>Python for Beginners</h3>
+            <p>Master Python from scratch</p> <span>₹499</span>
+        </div>
+    </section>
+    <section class="course-cards">
+        <div class="course-card data"> <img src="ai1.jpg" alt="Course" />
+            <h3>The Complete AI Guide</h3>
+            <p>Learn ChatGPT, Generative AI & More</p> <span> 1-1 call: ₹399</span>
+        </div>
+        <div class="course-card ai"> <img src="ai2.jpg" alt="Course" />
+            <h3>DeepSeek + AI Marketing</h3>
+            <p>30+ AI tools for professionals</p> <span>₹459</span>
+        </div>
+        <div class="course-card python"> <img src="python.jpg" alt="Course" />
+            <h3>Python for Beginners</h3>
+            <p>Master Python from scratch</p> <span>₹499</span>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
